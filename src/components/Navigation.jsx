@@ -10,6 +10,9 @@ const Navigation = () => {
             <Nav.Item as="li">
                 <Nav.Link as={Link} to="/about">About</Nav.Link>
             </Nav.Item>
+            <Nav.Item as="li">
+                <Nav.Link as={Link} to="/search">Search by origin</Nav.Link>
+            </Nav.Item>
 
         </Nav>
     )

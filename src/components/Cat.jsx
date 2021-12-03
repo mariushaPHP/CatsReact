@@ -2,9 +2,10 @@ import {Card} from "react-bootstrap";
 
 
 const Cat = (props) =>  {
+
     return (
         <Card>
-            <Card.Header as="h5">{props.name}</Card.Header>
+            <Card.Header as="h5">{props.name} </Card.Header>
             <Card.Body>
                 <Card.Title>Kilme: {props.origin}</Card.Title>
                 <Card.Text>

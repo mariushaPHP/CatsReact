@@ -18,26 +18,24 @@ const Cats = () =>  {
             .then(data => setCats(data))
     },[]
     )
-
-
+    console.log(cats[0])
+    let i =0;
 
     return (
 
+        <>
+            <Row>
 
-        <><Row>
+                {(cats.length) ? cats.map(cat=><Cat key={cat.id} name={cat.name} origin={cat.origin} image={cat.image}/>)
+                :
+                    (
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    )}
 
-            {(cats.length) ? cats.map(cat=><Cat key={cat.id} name={cat.name} origin={cat.origin} image={cat.image}/>)
-            :
-                (
-                    <Spinner animation="border" role="status">
-                        <span className="visually-hidden">Loading...</span>
-                    </Spinner>
-                )}
-
-        </Row>
-
+            </Row>
         </>
-
     )
 }
 
