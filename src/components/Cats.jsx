@@ -18,7 +18,9 @@ const Cats = () =>  {
             .then(data => setCats(data))
     },[]
     )
-    console.log(cats[0])
+    //console.log('cats', cats)
+    //console.log('cats[0]', cats[0])
+    //console.log(cats[0].image.url)
     let i =0;
 
     return (

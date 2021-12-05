@@ -1,7 +1,6 @@
-import {Spinner} from "react-bootstrap";
+import {Container, Spinner} from "react-bootstrap";
 import React, {useEffect, useState} from "react";
-import Optionas from "./Optionas";
-import cat from "./Cat";
+import CatsOption from "./catsOption";
 
 const Search = () => {
 
@@ -15,27 +14,33 @@ const Search = () => {
         },[]
     )
 
+    const [foto, setFoto] = useState("")
+
     const handleClick = () => {
-        setShow(true);
+
+        localStorage.removeItem('url')
         const select = document.querySelector('.form-select');
         const value = select.options[select.selectedIndex].value;
+        const kate = cats.filter(cat => cat.id === value)
+        console.log("console kate", kate)
+        setFoto(kate[0].image.url)
+        setShow(true);
 
-        console.log('Katino id - ' + value);
     }
 
-    console.log(cats[0])
-
-
-
+    //console.log(cats)
 
     return(
 
         <>
             <select className="form-select" aria-label="Default select example" onChange={handleClick}>
                 <option selected>Open this select menu</option>
-                {cats.map(cat=><Optionas value={cat.id} name={cat.name}/>)}
+                { cats.map(cat=><CatsOption value={cat.id} name={cat.name} image={cat.image}/>)}
             </select>
-            {(show)&&<h1>Pavyko</h1>}
+            <Container style={{display: "flex", justifyContent: "center"}}>
+                {(show)&& <img src={foto} alt="" width={'500px'} style={{margin: "40px auto"}}/>}
+            </Container>
+
         </>
 
     )

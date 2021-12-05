@@ -16,7 +16,7 @@ const App = () => {
                 <Router>
 
                     <Header />
-                    <Container style={{margin:"80px"}}>
+                    <Container style={{margin:"80px auto"}}>
                         <Routes>
                             <Route path="/" element={<Cats/>}/>
                             <Route path="/about" element={<About/>}/>
